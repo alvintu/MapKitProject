@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="eM1-jr-Qpy">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="7DO-au-38e">
+                                <rect key="frame" x="20" y="572" width="560" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="5Nw-c3-fva"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="Standard"/>
+                                    <segment title="Hybrid"/>
+                                    <segment title="Satellite"/>
+                                </segments>
+                                <connections>
+                                    <action selector="setMapStyle:" destination="BYZ-38-t0r" eventType="valueChanged" id="kvU-YB-ges"/>
+                                </connections>
+                            </segmentedControl>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="VYS-ni-Ioq">
+                                <rect key="frame" x="20" y="528" width="560" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="EgU-pV-CHG"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="aEO-UZ-fG6"/>
+                                </connections>
+                            </searchBar>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="zyj-cq-2AT">
+                                <rect key="frame" x="20" y="20" width="560" height="508"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="fMq-gg-ZZ9"/>
+                                </connections>
+                            </mapView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="apple-icon-180x180.png" translatesAutoresizingMaskIntoConstraints="NO" id="pgY-9U-AEM">
+                                <rect key="frame" x="20" y="64" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="FQV-zf-qjI"/>
+                                    <constraint firstAttribute="width" constant="50" id="PWs-lZ-dHa"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="7DO-au-38e" secondAttribute="bottom" id="EhT-6i-4Tr"/>
+                            <constraint firstItem="zyj-cq-2AT" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="FaO-Zy-Wx7"/>
+                            <constraint firstItem="7DO-au-38e" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="IaE-eV-ow6"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="zyj-cq-2AT" secondAttribute="trailing" id="Ltp-8Z-dyE"/>
+                            <constraint firstItem="pgY-9U-AEM" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="PrT-18-6ac"/>
+                            <constraint firstItem="zyj-cq-2AT" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="STd-qM-9W2"/>
+                            <constraint firstItem="pgY-9U-AEM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Vki-pA-Yfj"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="7DO-au-38e" secondAttribute="trailing" id="VmS-ST-cE9"/>
+                            <constraint firstItem="7DO-au-38e" firstAttribute="top" secondItem="VYS-ni-Ioq" secondAttribute="bottom" id="ahG-Mx-OdN"/>
+                            <constraint firstItem="VYS-ni-Ioq" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="l1A-BW-TeW"/>
+                            <constraint firstItem="VYS-ni-Ioq" firstAttribute="top" secondItem="zyj-cq-2AT" secondAttribute="bottom" id="qCe-Jb-8qp"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="VYS-ni-Ioq" secondAttribute="trailing" id="rLY-Lc-HlB"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="rVO-G3-eR5"/>
+                    <connections>
+                        <outlet property="mapView" destination="zyj-cq-2AT" id="eMP-tr-yn8"/>
+                        <outlet property="searchBar" destination="VYS-ni-Ioq" id="XWe-Tj-ZZV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1152" y="389"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="UTi-bM-Kmx">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="eM1-jr-Qpy" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="tcS-T1-yP3">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Xro-Np-b7w"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="c4g-TP-LaH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="340" y="389"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="apple-icon-180x180.png" width="180" height="180"/>
+    </resources>
+</document>
